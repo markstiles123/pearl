@@ -554,9 +554,14 @@
 
     <script>
               let audio=document.getElementById('audiolove')
-        document.addEventListener('click',_=>{
-            audio.play()
-        },{once:true})
+			const startAudio = () => {
+				if (audio.paused) {
+					audio.play();
+				}
+			};
+			['pointerdown', 'pointerup', 'mousedown', 'touchend', 'keydown', 'click'].forEach((eventName) => {
+				document.addEventListener(eventName, startAudio, { once: true });
+			});
       const $ = (id) => document.getElementById(id),
         E = ["💖", "💗", "💕", "💘", "🌸", "✨", "💞", "🌹"];
       const rnd = (a, b) => a + Math.random() * (b - a);
