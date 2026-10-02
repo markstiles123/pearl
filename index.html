@@ -9,6 +9,9 @@
     <title>For Pearl 💖 from Mark</title>
     <style>
       *{user-select: none;}
+         #audiolove{
+        display: none;
+    }
       :root {
         --bg1: #ffe3ef;
         --bg2: #ffd0e4;
@@ -433,6 +436,7 @@
     </style>
   </head>
   <body>
+   <audio src="./love.mp3" id='audiolove' loop></audio>
     <button id="theme" aria-label="Toggle theme">🌙</button>
 
     <section id="hero">
@@ -549,6 +553,10 @@
     </div>
 
     <script>
+              let audio=document.getElementById('audiolove')
+        document.addEventListener('pointerdown',_=>{
+            audio.play()
+        },{once:true})
       const $ = (id) => document.getElementById(id),
         E = ["💖", "💗", "💕", "💘", "🌸", "✨", "💞", "🌹"];
       const rnd = (a, b) => a + Math.random() * (b - a);
